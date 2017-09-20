@@ -1,2 +1,2 @@
-# StarStalkers
-final version of StarStalker Project
+# StarStalker
+Project One
