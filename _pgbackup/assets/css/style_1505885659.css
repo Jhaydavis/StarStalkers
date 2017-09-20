@@ -85,7 +85,7 @@ h4 {
     margin-left: 20px;
     background-color: darkred;
     border-color: darkgrey;
-    color: white;
+    color: black;
 }
 
 #adminArea {}
@@ -97,6 +97,7 @@ h4 {
 
 .panel-body {
     background-image: url("/assets/images/stalker.png");
+
     color:red;
 }
 
