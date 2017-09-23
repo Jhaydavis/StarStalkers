@@ -1,26 +1,26 @@
  var audio = new Audio("assets/audio/EveryBreathYouTake.mp3")
 
-     function bgMusicPlay() {
-         audio.play();
-         audio.loop = true;
-     };
+ function bgMusicPlay() {
+     audio.play();
+     audio.loop = true;
+ };
+
+ bgMusicPlay();
+
+
+ $("#sound-off").click(function () {
+
+     audio.pause();
+
+ });
+
+ $("#sound-on").click(function () {
 
      bgMusicPlay();
 
+ });
 
-     $("#sound-off").click(function () {
-
-         audio.pause();
-
-     });
-
-     $("#sound-on").click(function () {
-
-         bgMusicPlay();
-
-     }); 
-
-$(document).on('click', 'tr', function () {
+ $(document).on('click', 'tr', function () {
      console.log($(this[0]))
 
      var first = ($(this).find('td:first').text());
@@ -28,8 +28,8 @@ $(document).on('click', 'tr', function () {
      var queryURL = "https://api.themoviedb.org/3/search/person?api_key=b87c09787f893f3fa630db9c1eef2c6b&query=" + first + "+" + last;
 
 
-    
 
+     // Function for returning visitors
      function DisplayStarInfo() {
 
 
@@ -57,7 +57,7 @@ $(document).on('click', 'tr', function () {
              //var movieDiv = $("<div class='movie'>");
 
              $("#poster_image").empty();
-            
+
 
              var image = $("<img>").attr("src", imgURL);
              $("#poster_image").append(image);
@@ -173,7 +173,7 @@ $(document).on('click', 'tr', function () {
                          console.log(data[0].faceAttributes.emotion.neutral);
                          console.log(data[0].faceAttributes.emotion.happiness);
                          var starHappiness = (data[0].faceAttributes.emotion.happiness) * 100 + "%";
-                     
+
                          var starAnger = (data[0].faceAttributes.emotion.anger) * 100 + "%";
                          var starNeutral = (data[0].faceAttributes.emotion.neutral) * 100 + "%";
 
@@ -241,48 +241,19 @@ $(document).on('click', 'tr', function () {
 
 
 
-
-     //event.preventDefault();
-
+     // Function for first timers
 
      displayStarInfo();
 
      var stalkerName = $("#stalker-name").val().trim();
      var starFirstName = $("#star-first-name").val().trim();
      var starLastName = $("#star-last-name").val().trim();
-     //var starFavMov = $("#star-fav-mov").val().trim();
-     //var stalkVal = $("#stalk-value").val().trim();
 
-     //alert(starFirstName);
-     /*
-          myData.ref("/Stars/").push({
-              yName: stalkerName,
-              sfName: starFirstName,
-              slName: starLastName,
-              Movie: starFavMov,
-              sValue: stalkVal
-     */
-     //});
  });
 
 
 
- //myData.ref("/Stars").on("child_added", function (snap) {
 
- // var record = snap.val();
-
-
-
- // push updates back to client page
- //$("#star-table").append("<tr><td>" + record.yName + "</td><td>" + record.sfName + "</td><td>" + record.slName + "</td><td>" + record.Movie + "</td><td>" + record.sValue + "</td></tr>)");
-
- //    $('tr').click( function(){
- //    console.log(this)
- //})
-
-
-
- //});
  // This code section is for The Movie Datbase API to pull info by Actor Name instead of movie title
 
  function displayStarInfo() {
@@ -294,7 +265,7 @@ $(document).on('click', 'tr', function () {
          url: queryURL,
          method: "GET"
      }).done(function (res) {
-         
+
          console.log(res);
          var starKnownFor = res.results[0].known_for[0].title;
 
@@ -447,7 +418,7 @@ $(document).on('click', 'tr', function () {
                      console.log(data[0].faceAttributes.emotion.neutral);
                      console.log(data[0].faceAttributes.emotion.happiness);
                      var starHappiness = (data[0].faceAttributes.emotion.happiness) * 100 + "%";
-                    
+
                      var starAnger = (data[0].faceAttributes.emotion.anger) * 100 + "%";
                      var starNeutral = (data[0].faceAttributes.emotion.neutral) * 100 + "%";
 
