@@ -69,7 +69,7 @@
 
              // we take the starID return data and feed it into this new query to get
              // the bio info
-             var actorQueryURL = "http://api.themoviedb.org/3/person/" + starID + "?api_key=b87c09787f893f3fa630db9c1eef2c6b";
+             var actorQueryURL = "https://api.themoviedb.org/3/person/" + starID + "?api_key=b87c09787f893f3fa630db9c1eef2c6b";
              $.ajax({
                  url: actorQueryURL,
                  method: "GET"
