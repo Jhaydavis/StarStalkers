@@ -5,7 +5,7 @@
      audio.loop = true;
  };
 
- bgMusicPlay();
+ //bgMusicPlay();
 
 
  $("#sound-off").click(function () {
@@ -129,8 +129,8 @@
 
 
 
-                 var subscriptionKey = "7a8638a5843f46e3bf754e3bf1d13193";
-                 var uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+                 var subscriptionKey = "a449894a4abf4f49abc578a24f873f81";
+                 var uriBase = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize";
 
                  // Request parameters.
                  var params = {
@@ -169,13 +169,13 @@
                          $("#responseTextArea").val(JSON.stringify(data, null, 2));
 
                          console.log(data[0]);
-                         console.log(data[0].faceAttributes.emotion.anger);
-                         console.log(data[0].faceAttributes.emotion.neutral);
-                         console.log(data[0].faceAttributes.emotion.happiness);
-                         var starHappiness = (data[0].faceAttributes.emotion.happiness) * 100 + "%";
+                         console.log(data[0].scores.anger);
+                         
+                         var starHappiness = (data[0].scores.happiness) * 100 + "%";
+                         console.log(starHappiness);
 
-                         var starAnger = (data[0].faceAttributes.emotion.anger) * 100 + "%";
-                         var starNeutral = (data[0].faceAttributes.emotion.neutral) * 100 + "%";
+                         var starAnger = (data[0].scores.anger) * 100 + "%";
+                         var starNeutral = (data[0].scores.neutral) * 100 + "%";
 
                          $("#responseTextArea").html("<h2>Image Emotional State Analysis</h2><br>");
                          $("#responseTextArea").append("<h3>Happines level: " + starHappiness + "</h3>  ");
